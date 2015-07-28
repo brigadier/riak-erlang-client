@@ -196,3 +196,31 @@
           primary   :: boolean()
          }).
 -type preflist() :: [#preflist_item{}].
+
+
+
+-type ctx() :: any().
+-type rpb_req() :: {tunneled, msg_id(), binary()} | atom() | tuple().
+-type rpb_resp() :: atom() | tuple().
+-type msg_id() :: non_neg_integer(). %% Request identifier for tunneled message types
+-type search_admin_opt() :: {timeout, timeout()} |
+                     {call_timeout, timeout()}.
+-type search_admin_opts() :: [search_admin_opt()].
+-type index_opt() :: {timeout, timeout()} |
+                     {call_timeout, timeout()} |
+                     {stream, boolean()} |
+                     {continuation, binary()} |
+                     {pagination_sort, boolean()} |
+                     {max_results, non_neg_integer() | all}.
+-type index_opts() :: [index_opt()].
+-type range_index_opt() :: {return_terms, boolean()} |
+                           {term_regex, binary()}.
+-type range_index_opts() :: [index_opt() | range_index_opt()].
+-type cs_opt() :: {timeout, timeout()} |
+                  {continuation, binary()} |
+                  {max_results, non_neg_integer() | all} |
+                  {start_key, binary()} |
+                  {start_incl, boolean()} |
+                  {end_key, binary()} |
+                  {end_incl, boolean()}.
+-type cs_opts() :: [cs_opt()].
